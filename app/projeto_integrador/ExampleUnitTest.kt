@@ -1,4 +1,4 @@
-package com.example.logyn
+package com.example.projeto_integrador
 
 import org.junit.Test
 
