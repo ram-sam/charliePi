@@ -1,7 +1,9 @@
 package com.example.projeto_integrador
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -55,11 +57,15 @@ class MainActivity : AppCompatActivity() {
                 Log.e("API Failure", "Error fetching products", t)
             }
         })
-        
+        // Configura o botão para abrir a tela de login
+        findViewById<Button>(R.id.login).setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     interface ApiService {
-        @GET("lista_de_produtos/")  // Ajuste conforme o endpoint correto
+        @GET("lista_de_produtos/")
         fun getProdutos(): Call<List<Produto>>
     }
 }

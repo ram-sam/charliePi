@@ -15,7 +15,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toEndOf="@+id/imagem_produto"
+        app:layout_constraintStart_toEndOf="@+id/imgProduto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -25,11 +25,11 @@
         android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintStart_toEndOf="@+id/imagem_produto"
+        app:layout_constraintStart_toEndOf="@+id/imgProduto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imagem_produto"
+        android:id="@+id/imgProduto"
         android:layout_width="73dp"
         android:layout_height="79dp"
         android:src="@mipmap/ic_launcher"
