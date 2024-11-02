@@ -31,23 +31,23 @@ class CustomAdapter(private val dataSet: List<Produto>) :
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val produto = dataSet[position]
-        viewHolder.nome.text = produto.PRODUTO_NOME
+        viewHolder.nome.text = produto.produtoNome
         //viewHolder.descricao.text = produto.PRODUTO_DESC
-        viewHolder.valor.text = produto.PRODUTO_PRECO.toString()
+        viewHolder.valor.text = produto.produtoPreco.toString()
 
         Glide.with(viewHolder.itemView.context)
-            .load(produto. IMAGEM_URL)
+            .load(produto.imagemUrl)
             .placeholder(R.drawable.ic_launcher_background) // placeholder
             .error(com.google.android.material.R.drawable.mtrl_ic_error) // indica erro
             .into(viewHolder.imagem)
 
         viewHolder.btnComprar.setOnClickListener {
             val intent = Intent(viewHolder.itemView.context, ProdutoDetalhes::class.java)
-            intent.putExtra("NOME_PRODUTO", produto.PRODUTO_NOME)
-            intent.putExtra("DESCRICAO_PRODUTO", produto.PRODUTO_DESC)
-            intent.putExtra("IMAGE_PRODUTO", produto.IMAGEM_URL)
-            intent.putExtra("PRECO_PRODUTO", produto.PRODUTO_PRECO)
-            intent.putExtra("QUANTIDADE_DISPONIVEL", produto.QUANTIDADE_DISPONIVEL)
+            intent.putExtra("NOME_PRODUTO", produto.produtoNome)
+            intent.putExtra("DESCRICAO_PRODUTO", produto.produtoDesc)
+            intent.putExtra("IMAGE_PRODUTO", produto.imagemUrl)
+            intent.putExtra("PRECO_PRODUTO", produto.produtoPreco)
+            intent.putExtra("QUANTIDADE_DISPONIVEL", produto.quantidadeDisponivel)
             viewHolder.itemView.context.startActivity(intent)
         }
     }
