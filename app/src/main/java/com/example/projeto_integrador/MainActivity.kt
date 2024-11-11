@@ -1,5 +1,7 @@
 package com.example.projeto_integrador
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -18,6 +20,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CustomAdapter
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -61,6 +64,16 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.login).setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+        }
+
+        val sharedPreferences = getSharedPreferences("Dados", Context.MODE_PRIVATE)
+        val userId = sharedPreferences.getInt("id", 0)
+
+        findViewById<Button>(R.id.Carrinho).setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            intent.putExtra("userId", userId)
+            startActivity(intent)
+            finish()
         }
     }
 
