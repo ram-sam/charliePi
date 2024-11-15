@@ -1,4 +1,4 @@
-package com.example.projeto_integrador
+package com.example.myapplication
 
 import android.content.Context
 import android.os.Bundle
@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.logyn.R
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
