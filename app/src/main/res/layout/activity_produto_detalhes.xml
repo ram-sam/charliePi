@@ -30,7 +30,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="12dp"
         android:gravity="center"
-        android:text="DescriÃƒÂ§ÃƒÂ£o"
+        android:text="DESCRICAO"
         android:textColor="#666"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,12 +47,10 @@
         android:hint="Qtd"
         android:inputType="number"
         android:padding="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toStartOf="@+id/btnAdicionarAoCarrinho"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto" />
 
     <Button
         android:id="@+id/btnAdicionarAoCarrinho"
@@ -64,12 +62,10 @@
         android:text="Adicionar ao Carrinho"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/frameLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.961"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto"
-        app:layout_constraintVertical_bias="0.375" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto" />
 
     <ImageView
         android:id="@+id/imgProduto"
@@ -82,26 +78,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_launcher_background" />
 
-    <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="416dp"
-        android:layout_height="62dp"
-        android:background="#F2B4AE"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-    </FrameLayout>
-
     <TextView
         android:id="@+id/txtQuantidadeDisponivelLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="92dp"
-        android:text="Quantidade disponÃƒÂ­vel:"
+        android:text="Quantidade disponÍvel:"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/editQuantidadeDesejada"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,5 +114,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgProduto" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bn_navegation"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_buttom_nav" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
