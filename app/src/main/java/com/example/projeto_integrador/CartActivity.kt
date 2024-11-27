@@ -19,7 +19,9 @@ class CartActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var totalTextView: TextView
     private lateinit var goToPaymentButton: Button
+
     private var total: Double = 0.0
+    private var cartItems: MutableList<Produto> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,12 +57,24 @@ class CartActivity : AppCompatActivity() {
         totalTextView = findViewById(R.id.totalTextView)
         goToPaymentButton = findViewById(R.id.goToPaymentButton)
 
+
         recyclerView.layoutManager = LinearLayoutManager(this)
         fetchCartItems()
 
         goToPaymentButton.setOnClickListener {
-            // Ir para tela de pagamento enviando os dados
+
+
+            val sharedPreferences = getSharedPreferences("Dados", Context.MODE_PRIVATE)
+            val userId = sharedPreferences.getInt("id", 0)
+            val intent = Intent(this, PaymentActivity::class.java).apply {
+                putExtra("TOTAL", total.toString())
+                putExtra("USER", userId)  // O ID do usuÃƒÆ’Ã‚Â¡rio deve ser obtido de maneira segura, por exemplo, atravÃƒÆ’Ã‚Â©s de uma sessÃƒÆ’Ã‚Â£o de login com o Shared Preferences
+                putParcelableArrayListExtra("PRODUCT_LIST", ArrayList(cartItems))
+            }
+            startActivity(intent)
         }
+
+
     }
 
     private fun fetchCartItems() {
@@ -78,11 +92,15 @@ class CartActivity : AppCompatActivity() {
             override fun onResponse(call: Call<List<Produto>>, response: Response<List<Produto>>) {
                 if (response.isSuccessful) {
                     val cartItems = response.body()?.toMutableList() ?: mutableListOf()
+                    val total = cartItems.sumOf { item ->
+                        val preco = item.produtoPreco?.toDoubleOrNull() ?: 0.0
+                        val quantidade = item.quantidadeDisponivel ?: 0
+                        preco * quantidade
+                    }
+                    totalTextView.text = "Total: R$${String.format("%.2f", total)}"
                     recyclerView.adapter = CartAdapter(cartItems, this@CartActivity) {
-                        total = cartItems.sumOf {
-                            (it.produtoPreco?.toDoubleOrNull() ?: 0.0) * (it.quantidadeDisponivel ?: 0)
-                        }
-                        totalTextView.text = "Total: R$${String.format("%.2f", total)}"
+                        // Exibe o total na TextView
+
                     }
                 }
             }
@@ -93,4 +111,3 @@ class CartActivity : AppCompatActivity() {
         })
     }
 }
-

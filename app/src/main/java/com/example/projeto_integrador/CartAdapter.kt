@@ -34,48 +34,13 @@ class CartAdapter(private val items: MutableList<Produto>, private val context: 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.productName.text = item.produtoNome
-        holder.productPrice.text = "R$${item.produtoPreco}"//String.format("%.2f", item.produtoPreco.toDouble())}"
+        holder.productPrice.text =
+            "R$${item.produtoPreco}"//String.format("%.2f", item.produtoPreco.toDouble())}"
         holder.productQuantity.text = "Qtd: ${item.quantidadeDisponivel}"
         Glide.with(context).load(item.imagemUrl).into(holder.productImage)
-
-        holder.deleteButton.setOnClickListener {
-            removeItemFromCart(item, position)
-        }
     }
 
-    private fun removeItemFromCart(item: Produto, position: Int) {
-        val sharedPreferences = context.getSharedPreferences("Dados", Context.MODE_PRIVATE)
-        val idUsuario = sharedPreferences.getInt("id", 0)
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://www.thyagoquintas.com.br/CHARLIE/carrinho_de_compras/getCartItems")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        val api = retrofit.create(CartApiService::class.java)
-        val produtoId = item.produtoId
-
-        if (produtoId != null) {
-            api.deleteCartItem(produtoId, userId = idUsuario).enqueue(object : Callback<Void> {
-                override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                    if (response.isSuccessful) {
-                        items.removeAt(position)
-                        notifyItemRemoved(position)
-                        notifyItemRangeChanged(position, items.size)
-                        updateTotal()
-                    } else {
-                        Toast.makeText(context, "Failed to delete item", Toast.LENGTH_SHORT).show()
-                    }
-                }
-
-                override fun onFailure(call: Call<Void>, t: Throwable) {
-                    Toast.makeText(context, "Error connecting to the server", Toast.LENGTH_SHORT).show()
-                }
-            })
-        } else {
-            Toast.makeText(context, "Invalid product", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     override fun getItemCount() = items.size
 }

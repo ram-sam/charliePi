@@ -1,9 +1,11 @@
 package com.example.projeto_integrador
 
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.PUT
 import retrofit2.http.Query
 
 interface CartApiService {
@@ -12,5 +14,6 @@ interface CartApiService {
 
     @DELETE("CHARLIE/carrinho_de_compras/deleteCartItem/index.php")
     fun deleteCartItem(@Query("produtoId") produtoId: Int, @Query("userId") userId: Int): Call<Void>
+
 }
 
