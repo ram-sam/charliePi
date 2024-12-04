@@ -38,9 +38,6 @@ class PaymentActivity : AppCompatActivity() {
 
         findViewById<TextView>(R.id.totalValueText).text = "Total: $totalValue"
 
-        val cardNumberInput: EditText = findViewById(R.id.cardNumberInput)
-        val cardExpirationInput: EditText = findViewById(R.id.cardExpirationInput)
-        val cardCVCInput: EditText = findViewById(R.id.cardCVCInput)
         val finishPaymentButton: Button = findViewById(R.id.finishPaymentButton)
 
         radioGroup = findViewById(R.id.addressRadioGroup)

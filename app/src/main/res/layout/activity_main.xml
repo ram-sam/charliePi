@@ -8,55 +8,40 @@
     tools:context=".MainActivity">
 
 
+    <!-- Header -->
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#BF0B0B"
+        android:gravity="center"
+        android:text="Produtos"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewProdutos"
-        android:layout_width="380dp"
-        android:layout_height="697dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bn_navegation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.695" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#F9EDEC"
-        android:elevation="4dp"
-        android:title="Minha App"
+        android:layout_width="370dp"
+        android:layout_height="735dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <!-- Conteúdo da Activity -->
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        app:layout_constraintVertical_bias="0.212" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bn_navegation"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="#F9EDEC"
-        app:layout_constraintBaseline_toBottomOf="parent"
+        android:background="#BF0B0B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_buttom_nav" />
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Produtos"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewProdutos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.048"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar"
-        app:layout_constraintVertical_bias="0.615" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

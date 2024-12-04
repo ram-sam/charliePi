@@ -47,6 +47,7 @@
         android:hint="Qtd"
         android:inputType="number"
         android:padding="12dp"
+        android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/btnAdicionarAoCarrinho"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
@@ -58,10 +59,10 @@
         android:layout_height="52dp"
         android:layout_marginTop="44dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/button_redondo"
+        android:backgroundTint="#F2B4AE"
         android:text="Adicionar ao Carrinho"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.961"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,10 +105,10 @@
         android:layout_width="410dp"
         android:layout_height="47dp"
         android:layout_marginTop="12dp"
-        android:background="#BBBF4E"
+        android:background="#BF0B0B"
         android:paddingLeft="15dp"
         android:paddingTop="5dp"
-        android:text="Preco"
+        android:text="Preço"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,5 +126,6 @@
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_buttom_nav" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
