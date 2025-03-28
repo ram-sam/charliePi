@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBFBFB"
+    tools:context=".ProdutoDetalhes">
+
+    <TextView
+        android:id="@+id/txtNomeProduto"
+        android:layout_width="387dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Produto"
+        android:textColor="#333"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/precoProduto" />
+
+    <TextView
+        android:id="@+id/txtDescricaoProduto"
+        android:layout_width="389dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="12dp"
+        android:gravity="center"
+        android:text="DESCRICAO"
+        android:textColor="#666"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeProduto" />
+
+    <EditText
+        android:id="@+id/editQuantidadeDesejada"
+        android:layout_width="115dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/button_redondo"
+        android:hint="Qtd"
+        android:inputType="number"
+        android:padding="12dp"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toStartOf="@+id/btnAdicionarAoCarrinho"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto" />
+
+    <Button
+        android:id="@+id/btnAdicionarAoCarrinho"
+        android:layout_width="164dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#F2B4AE"
+        android:text="Adicionar ao Carrinho"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.961"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto" />
+
+    <ImageView
+        android:id="@+id/imgProduto"
+        android:layout_width="312dp"
+        android:layout_height="275dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/txtQuantidadeDisponivelLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:text="Quantidade disponÍvel:"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/editQuantidadeDesejada"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoProduto" />
+
+    <TextView
+        android:id="@+id/txtQuantidadeDisponivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/txtQuantidadeDisponivelLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtQuantidadeDisponivelLabel" />
+
+    <TextView
+        android:id="@+id/precoProduto"
+        android:layout_width="410dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="12dp"
+        android:background="#BF0B0B"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:text="Preço"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProduto" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bn_navegation"
+        android:layout_width="412dp"
+        android:layout_height="60dp"
+        app:layout_constraintBaseline_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_buttom_nav" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

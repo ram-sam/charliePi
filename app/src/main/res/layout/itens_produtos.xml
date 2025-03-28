@@ -6,43 +6,45 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
+
     <TextView
         android:id="@+id/nomeProduto"
-        android:layout_width="141dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="270dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="4dp"
+        android:textColor="#282727"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.393"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toEndOf="@+id/imgProduto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/valorProduto"
         android:layout_width="58dp"
         android:layout_height="22dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="48dp"
+        android:textColor="#282727"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.878"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toEndOf="@+id/imgProduto"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="81dp"
-        android:layout_height="83dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        android:id="@+id/imgProduto"
+        android:layout_width="73dp"
+        android:layout_height="79dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="350dp"
         android:layout_height="1.5dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="108dp"
         android:background="#6A6A6A"
         android:backgroundTint="#6A6A6A"
         android:orientation="horizontal"
@@ -50,5 +52,20 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+    <Button
+        android:id="@+id/btnComprar"
+        android:layout_width="111dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="4dp"
+        android:text="Comprar"
+        android:backgroundTint="#F2B4AE"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toEndOf="@+id/valorProduto"
+        app:layout_constraintTop_toBottomOf="@+id/nomeProduto"
+        app:layout_constraintVertical_bias="0.535" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
